@@ -2,10 +2,12 @@ package pl.lach.spring.buildingmaterialrental.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "devices")
 public class Device {
 
     @Id
@@ -29,10 +31,19 @@ public class Device {
         this.quantity = quantity;
         this.price = price;
         this.category = category;
+        personList = new ArrayList<>();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
     }
 
     public void setId(Long id) {

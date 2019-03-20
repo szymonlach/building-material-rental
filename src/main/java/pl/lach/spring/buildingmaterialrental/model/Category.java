@@ -1,6 +1,7 @@
 package pl.lach.spring.buildingmaterialrental.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,8 +15,8 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "device")
-    private List<Device> devices;
+    @OneToMany(mappedBy = "category")
+    private List<Device> devices = new ArrayList<>();
 
     public Category(String name, String description, List<Device> devices) {
         this.name = name;
