@@ -15,13 +15,18 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category",
+            cascade = CascadeType.ALL)
     private List<Device> devices = new ArrayList<>();
 
-    public Category(String name, String description, List<Device> devices) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
-        this.devices = devices;
+    }
+
+    public void addDevice(Device device) {
+        device.setCategory(this);
+        devices.add(device);
     }
 
     public Long getId() {
@@ -79,7 +84,6 @@ public class Category {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", devices=" + devices +
                 '}';
     }
 }

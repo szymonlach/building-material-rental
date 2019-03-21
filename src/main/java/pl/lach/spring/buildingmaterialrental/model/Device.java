@@ -18,20 +18,21 @@ public class Device {
     private Integer quantity;
     private BigDecimal price;
 
-    @ManyToOne
-    @JoinColumn(name = "device_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToMany(mappedBy = "devices")
-    private List<Person> personList;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "device_person",
+            joinColumns = {@JoinColumn(name = "device_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "person_id", referencedColumnName = "id")})
+    private List<Person> personList = new ArrayList<>();
 
 
-    public Device(String name, Integer quantity, BigDecimal price, Category category) {
+    public Device(String name, Integer quantity, BigDecimal price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
-        this.category = category;
-        personList = new ArrayList<>();
     }
 
     public Long getId() {
@@ -42,8 +43,9 @@ public class Device {
         return personList;
     }
 
-    public void setPersonList(List<Person> personList) {
-        this.personList = personList;
+    public void addPerson(Person person){
+        person.getDevices().add(this);
+        personList.add(person);
     }
 
     public void setId(Long id) {
@@ -108,6 +110,7 @@ public class Device {
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", category=" + category +
+                ", personList=" + personList +
                 '}';
     }
 }

@@ -19,15 +19,14 @@ public class Person {
     private String pesel;
     private String idCardNumber;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "personList")
     private List<Device> devices = new ArrayList<>();
 
-    public Person(String firstName, String lastName, String pesel, String idCardNumber, List<Device> devices) {
+    public Person(String firstName, String lastName, String pesel, String idCardNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
         this.idCardNumber = idCardNumber;
-        this.devices = devices;
     }
 
     public Long getId() {
@@ -105,7 +104,6 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", pesel='" + pesel + '\'' +
                 ", idCardNumber='" + idCardNumber + '\'' +
-                ", devices=" + devices +
                 '}';
     }
 }
