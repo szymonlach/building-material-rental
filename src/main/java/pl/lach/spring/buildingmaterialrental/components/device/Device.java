@@ -1,4 +1,7 @@
-package pl.lach.spring.buildingmaterialrental.model;
+package pl.lach.spring.buildingmaterialrental.components.device;
+
+import pl.lach.spring.buildingmaterialrental.components.category.Category;
+import pl.lach.spring.buildingmaterialrental.components.person.Person;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

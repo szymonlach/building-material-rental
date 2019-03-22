@@ -1,9 +1,7 @@
-package pl.lach.spring.buildingmaterialrental.services;
+package pl.lach.spring.buildingmaterialrental.components.category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.lach.spring.buildingmaterialrental.model.Category;
-import pl.lach.spring.buildingmaterialrental.repository.CategoryRepository;
 
 import java.util.Optional;
 import java.util.Scanner;

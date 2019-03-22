@@ -3,9 +3,9 @@ package pl.lach.spring.buildingmaterialrental.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.lach.spring.buildingmaterialrental.options.ApplicationOptions;
-import pl.lach.spring.buildingmaterialrental.services.CategoryService;
-import pl.lach.spring.buildingmaterialrental.services.DeviceService;
-import pl.lach.spring.buildingmaterialrental.services.PersonService;
+import pl.lach.spring.buildingmaterialrental.components.category.CategoryService;
+import pl.lach.spring.buildingmaterialrental.components.device.DeviceService;
+import pl.lach.spring.buildingmaterialrental.components.person.PersonService;
 
 import java.util.Scanner;
 

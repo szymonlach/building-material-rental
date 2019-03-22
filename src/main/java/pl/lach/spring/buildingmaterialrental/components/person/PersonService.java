@@ -1,9 +1,9 @@
-package pl.lach.spring.buildingmaterialrental.services;
+package pl.lach.spring.buildingmaterialrental.components.person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.lach.spring.buildingmaterialrental.model.Person;
-import pl.lach.spring.buildingmaterialrental.repository.PersonRepository;
+import pl.lach.spring.buildingmaterialrental.components.person.Person;
+import pl.lach.spring.buildingmaterialrental.components.person.PersonRepository;
 
 import java.util.Optional;
 import java.util.Scanner;

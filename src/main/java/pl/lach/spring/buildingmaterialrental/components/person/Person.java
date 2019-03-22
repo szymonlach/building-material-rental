@@ -1,4 +1,6 @@
-package pl.lach.spring.buildingmaterialrental.model;
+package pl.lach.spring.buildingmaterialrental.components.person;
+
+import pl.lach.spring.buildingmaterialrental.components.device.Device;
 
 import javax.persistence.*;
 import java.util.ArrayList;

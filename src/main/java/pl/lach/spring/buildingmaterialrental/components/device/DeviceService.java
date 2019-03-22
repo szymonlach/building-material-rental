@@ -1,12 +1,10 @@
-package pl.lach.spring.buildingmaterialrental.services;
+package pl.lach.spring.buildingmaterialrental.components.device;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.lach.spring.buildingmaterialrental.model.Category;
-import pl.lach.spring.buildingmaterialrental.model.Device;
-import pl.lach.spring.buildingmaterialrental.repository.CategoryRepository;
-import pl.lach.spring.buildingmaterialrental.repository.DeviceRepository;
+import pl.lach.spring.buildingmaterialrental.components.category.Category;
+import pl.lach.spring.buildingmaterialrental.components.category.CategoryRepository;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -34,11 +32,12 @@ public class DeviceService {
         double price = scanner.nextDouble();
         System.out.println("Quantity");
         int quantity = scanner.nextInt();
-        System.out.println("Category ID");
-        Long cateoryID = scanner.nextLong();
+        scanner.nextLine();
+        System.out.println("Category name");
+        String categoryName = scanner.nextLine();
         Device device = new Device(name, quantity, BigDecimal.valueOf(price));
-        Optional<Category> byId = categoryRepository.findById(cateoryID);
-        byId.ifPresent(device::setCategory);
+        Optional<Category> category = categoryRepository.findByNameContainingIgnoreCase(categoryName);
+        category.ifPresent(device::setCategory);
         deviceRepository.save(device);
         System.out.println("Device added!");
     }
