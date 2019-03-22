@@ -37,11 +37,11 @@ public class RentController {
 
 
     private void rent() {
-        System.out.println("Type person ID");
-        long personId = scanner.nextLong();
+        System.out.println("Type person PESEL");
+        String personPesel = scanner.nextLine();
         System.out.println("Type device ID");
         long deviceID = scanner.nextLong();
-        Optional<Person> person = personRepository.findById(personId);
+        Optional<Person> person = personRepository.findByPesel(personPesel);
         Optional<Device> device = deviceRepository.findById(deviceID);
 
         if (person.isPresent())

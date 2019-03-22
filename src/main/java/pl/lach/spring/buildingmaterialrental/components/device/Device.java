@@ -21,11 +21,11 @@ public class Device {
     private Integer quantity;
     private BigDecimal price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "device_person",
             joinColumns = {@JoinColumn(name = "device_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "person_id", referencedColumnName = "id")})
@@ -116,7 +116,6 @@ public class Device {
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", category=" + category +
-                ", personList=" + personList +
                 '}';
     }
 }

@@ -8,11 +8,12 @@ public enum ApplicationOptions {
     ADD_NEW_DEVICE(1, "Add new device"),
     ADD_NEW_CATEGORY(2, "Add new category"),
     ADD_NEW_PERSON(3, "Add new person"),
-    FIND_DEVICE(4, "Find device"),
+    FIND_DEVICE(4, "Rent device"),
     REMOVE_DEVICE(5, "Remove device"),
     REMOVE_CATEGORY(6, "Remove catgory"),
     REMOVE_PERSON(7, "Remove person"),
-    END(8, "End");
+    FIND_DEVICE_BY_NAME(8,"Find device by name"),
+    END(9, "End");
 
 
     private final int number;

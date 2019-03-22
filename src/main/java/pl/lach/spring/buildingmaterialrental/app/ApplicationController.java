@@ -65,9 +65,13 @@ public class ApplicationController {
             case REMOVE_PERSON:
                 personService.removePerson();
                 break;
+            case FIND_DEVICE_BY_NAME:
+                deviceService.findDeviceByName();
+                break;
             case END:
                 System.out.println("Bye bye!");
                 end = true;
+                scanner.close();
                 break;
         }
     }

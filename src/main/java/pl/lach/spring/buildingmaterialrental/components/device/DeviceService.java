@@ -7,6 +7,7 @@ import pl.lach.spring.buildingmaterialrental.components.category.Category;
 import pl.lach.spring.buildingmaterialrental.components.category.CategoryRepository;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -47,7 +48,14 @@ public class DeviceService {
         System.out.println("Type device Id to remove");
         long id = scanner.nextLong();
         Optional<Device> device = deviceRepository.findById(id);
-        device.ifPresent(deviceRepository::delete);
+        device.ifPresentOrElse(deviceRepository::delete,()-> System.out.println("NO SUCH DEVICE!"));
         System.out.println("Device remove!");
+    }
+
+    public void findDeviceByName() {
+        System.out.println("Type device name");
+        String name = scanner.nextLine();
+        List<Device> devices = deviceRepository.findAllByNameContainingIgnoreCase(name);
+        devices.forEach(System.out::println);
     }
 }
