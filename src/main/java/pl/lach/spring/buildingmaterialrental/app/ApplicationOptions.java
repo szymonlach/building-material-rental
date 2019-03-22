@@ -1,4 +1,4 @@
-package pl.lach.spring.buildingmaterialrental.options;
+package pl.lach.spring.buildingmaterialrental.app;
 
 import java.util.NoSuchElementException;
 

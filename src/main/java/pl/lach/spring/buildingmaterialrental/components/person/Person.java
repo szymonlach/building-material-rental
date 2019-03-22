@@ -31,6 +31,9 @@ public class Person {
         this.idCardNumber = idCardNumber;
     }
 
+    public Person() {
+    }
+
     public Long getId() {
         return id;
     }

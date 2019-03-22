@@ -38,6 +38,9 @@ public class Device {
         this.price = price;
     }
 
+    public Device() {
+    }
+
     public Long getId() {
         return id;
     }

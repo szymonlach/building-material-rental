@@ -1,11 +1,11 @@
-package pl.lach.spring.buildingmaterialrental.controller;
+package pl.lach.spring.buildingmaterialrental.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.lach.spring.buildingmaterialrental.options.ApplicationOptions;
 import pl.lach.spring.buildingmaterialrental.components.category.CategoryService;
 import pl.lach.spring.buildingmaterialrental.components.device.DeviceService;
 import pl.lach.spring.buildingmaterialrental.components.person.PersonService;
+import pl.lach.spring.buildingmaterialrental.components.rent.RentController;
 
 import java.util.Scanner;
 
@@ -16,14 +16,16 @@ public class ApplicationController {
     private DeviceService deviceService;
     private CategoryService categoryService;
     private PersonService personService;
+    private RentController rentController;
     private boolean end;
 
     @Autowired
-    public ApplicationController(Scanner scanner, DeviceService deviceService, CategoryService categoryService, PersonService personService) {
+    public ApplicationController(Scanner scanner, DeviceService deviceService, CategoryService categoryService, PersonService personService, RentController rentController) {
         this.scanner = scanner;
         this.deviceService = deviceService;
         this.categoryService = categoryService;
         this.personService = personService;
+        this.rentController = rentController;
         end = false;
     }
 
@@ -52,7 +54,7 @@ public class ApplicationController {
                 personService.savePerson();
                 break;
             case FIND_DEVICE:
-                deviceService.findDeviceById();
+                rentController.rentDeviceToCustomer();
                 break;
             case REMOVE_DEVICE:
                 deviceService.removeDevice();

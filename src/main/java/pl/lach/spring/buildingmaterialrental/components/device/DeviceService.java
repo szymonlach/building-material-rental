@@ -42,12 +42,6 @@ public class DeviceService {
         System.out.println("Device added!");
     }
 
-    public void findDeviceById() {
-        System.out.println("Type device ID:");
-        long id = scanner.nextLong();
-
-        System.out.println(deviceRepository.findById(id));
-    }
 
     public void removeDevice() {
         System.out.println("Type device Id to remove");
