@@ -24,6 +24,9 @@ public class Category {
         this.description = description;
     }
 
+    public Category() {
+    }
+
     public void addDevice(Device device) {
         device.setCategory(this);
         devices.add(device);
